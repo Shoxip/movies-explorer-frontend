@@ -23,7 +23,6 @@ export default function Profile({setIsLoggedIn}) {
   }
 
   const handleExit = (e) => {
-    e.preventDefault();
     setIsLoggedIn(false);
     localStorage.removeItem('token');
   }

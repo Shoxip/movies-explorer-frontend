@@ -2,27 +2,29 @@ import { useState, useEffect } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import Preloader from '../Preloader/Preloader';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import '../Movies/Movies.css'
 import './SavedMovies.css';
 import moviesDB from '../../utils/moviesDB';
 
-export default function SavedMovies() {
+export default function Movies() {
   const [isLoading, setIsLoading] = useState(true);
+  const movies = moviesDB;
+  const [filteredMovies, setFilteredMovies] = useState();
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+    }, 1000);
   }, []);
 
   return (
     <main className='movies'>
-      <SearchForm />
+      <SearchForm moviesStateAction={{movies, setFilteredMovies}} />
       <section>
         {
-          isLoading ? <Preloader /> : <MoviesCardList cards={moviesDB} />
+          isLoading ?
+            <Preloader /> : <MoviesCardList cards={filteredMovies} />
         }
-        <div className='saved-movies__devider' />
+        <button type='button' className='button movies__load-movies'>Ещё</button>
       </section>
     </main>
   );
