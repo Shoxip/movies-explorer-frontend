@@ -29,16 +29,16 @@ export default function Navigation({ isLoggedIn, onClose }) {
 
   return (
     <>
-      {!isLoggedIn ? (
+      {isLoggedIn ? (
         <nav className='nav-auth'>
           <ul className='nav-auth__list'>
             <li className='nav-auth__list-item'>
-              <Link className='link nav-auth__link' to='/signup'>
+              <Link className='link nav-auth__link' to='/sign-up'>
                 Регистрация
               </Link>
             </li>
             <li className='button nav-auth__list-item'>
-              <Link className='nav-auth__link nav-auth__link_login' to='/signin'>
+              <Link className='nav-auth__link nav-auth__link_login' to='/sign-in'>
                 Войти
               </Link>
             </li>

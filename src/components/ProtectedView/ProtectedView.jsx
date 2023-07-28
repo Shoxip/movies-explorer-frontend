@@ -1,8 +1,8 @@
 import React from 'react';
 import './ProtectedView.css'
-const ProtectedView = ({children, isLoggedIn}) => {
+const ProtectedView = ({children, isLoggedIn, isAuthNeeded}) => {
     return (
-      !isLoggedIn
+      !isLoggedIn || !isAuthNeeded
         ?
           (<div className={'center'}>
             <h1>У вас нет доступа к этой страничке</h1>

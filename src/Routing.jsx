@@ -9,23 +9,24 @@ import SignInPage from "./pages/auth/SignInPage";
 import SignUpPage from "./pages/auth/Signup.page";
 import NotFoundPage from "./pages/Notfound.page";
 import ProfilePage from "./pages/Profile.page";
+import ProtectedView from "./components/ProtectedView/ProtectedView";
 
 
 
 const RoutesList = [
-  {path: '/', pageComponent: <IndexPage />, isAuth: false},
+  {path: '/', pageComponent: <IndexPage />, isAuthNeeded: false},
 
-  {path: '/profile', pageComponent: <ProfilePage />, isAuth: false},
+  {path: '/profile', pageComponent: <ProfilePage />, isAuthNeeded: true},
 
   // Auth
-  {path: '/sign-in', pageComponent: <SignInPage />, isAuth: false},
-  {path: '/sign-up', pageComponent: <SignUpPage />, isAuth: false},
+  {path: '/sign-in', pageComponent: <SignInPage />, isAuthNeeded: true},
+  {path: '/sign-up', pageComponent: <SignUpPage />, isAuthNeeded: true},
 
   // Movies
-  {path: '/movies', pageComponent: <MoviesPage />, isAuth: false},
-  {path: '/movies/saved', pageComponent: <SavedMoviesPage />, isAuth: false},
+  {path: '/movies', pageComponent: <MoviesPage />, isAuthNeeded: false},
+  {path: '/movies/saved', pageComponent: <SavedMoviesPage />, isAuthNeeded: false},
 
-  {path: '*', pageComponent: <NotFoundPage />, isAuth: false},
+  {path: '*', pageComponent: <NotFoundPage />, isAuthNeeded: false},
 ]
 
 
@@ -36,10 +37,10 @@ export default function Routing() {
       <Routes>
         {
           RoutesList.map(i => (
-            <Route
-              path={i.path}
-              element={i.pageComponent}
-            />
+              <Route
+                path={i.path}
+                element={i.pageComponent}
+              />
           ))
         }
       </Routes>
