@@ -14,7 +14,6 @@ export default function Movies() {
     }, 1000);
   }, []);
 
-
   return (
     <main className='movies'>
       <SearchForm />
