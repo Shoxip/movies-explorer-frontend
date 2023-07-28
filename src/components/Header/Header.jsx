@@ -4,10 +4,9 @@ import Logo from '../Logo/Logo';
 import Popup from '../Popup/Popup';
 import './Header.css';
 
-export default function Header() {
+export default function Header({isLoggedIn}) {
 
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   function handlePopupClick() {
     setIsOpen(true);

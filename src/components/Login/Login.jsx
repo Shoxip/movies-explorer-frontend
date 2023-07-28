@@ -18,16 +18,15 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    localStorage.setItem('token', 'some-token-here'); // todo: LOGIN add token
+    console.log('works');
   }
 
   return (
     <main>
       <section className='authorization'>
-        <div className='authorization__logo'>
-          <Logo />
-        </div>
         <h1 className='authorization__title'>Рады видеть!</h1>
-        <form className='authorization__form'>
+        <form className='authorization__form' onSubmit={handleSubmit}>
           <div className='authorization__input-container'>
             <label className='authorization__input-label'>E-mail</label>
             <input

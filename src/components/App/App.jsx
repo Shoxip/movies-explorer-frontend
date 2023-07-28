@@ -9,19 +9,16 @@ import NotFound from '../NotFound/NotFound';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './App.css';
+import {useState} from "react";
 
 export default function App() {
-
-  const path = useLocation().pathname;
-
-  const headerPaths = ['/', '/movies', '/saved-movies', '/profile'];
-  const footerPaths = ['/', '/movies', '/saved-movies', '/signup'];
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <div className='page'>
-      {headerPaths.includes(path) && (
-        <Header />
-      )}
+
+      <Header isLoggedIn={isLoggedIn} />
+
       <Routes>
         <Route path='/' element={<Main />} />
         <Route
@@ -29,14 +26,13 @@ export default function App() {
           element={<Movies />}
         />
         <Route path='/saved-movies' element={<SavedMovies />} />
-        <Route path='/profile' element={<Profile />} />
+        <Route path='/profile' element={<Profile setIsLoggedIn={setIsLoggedIn} />} />
         <Route path='/signin' element={<Login />} />
         <Route path='/signup' element={<Register />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
-      {footerPaths.includes(path) && (
-        <Footer />
-      )}
+
+      <Footer />
     </div>
   );
 };

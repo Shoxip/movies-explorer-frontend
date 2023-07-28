@@ -1,5 +1,6 @@
 .authorization {
-  max-width: 396px;
+  max-width: 100%;
+  align-items: center;
   padding: 0 70px 80px;
   margin: 70px auto 0;
   display: flex;

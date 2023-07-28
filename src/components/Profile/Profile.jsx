@@ -4,7 +4,7 @@ import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import Header from '../Header/Header';
 import './Profile.css';
 
-export default function Profile() {
+export default function Profile({setIsLoggedIn}) {
 
   const { values, handleChange, errors, isValid, setIsValid } = useFormAndValidation();
 
@@ -20,6 +20,12 @@ export default function Profile() {
     e.preventDefault();
 
     // do logic for edit profile
+  }
+
+  const handleExit = (e) => {
+    e.preventDefault();
+    setIsLoggedIn(false);
+    localStorage.removeItem('token');
   }
 
   return (
@@ -62,7 +68,7 @@ export default function Profile() {
 
           <div className='profile__buttons'>
             <button type='submit' className='link profile__button profile__button_type_edit'>Редактировать</button>
-            <NavLink className='profile__button profile__button_type_exit' to='/'>
+            <NavLink className='profile__button profile__button_type_exit' to='/' onClick={handleExit}>
               Выйти из профиля
             </NavLink>
           </div>

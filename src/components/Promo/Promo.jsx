@@ -1,6 +1,5 @@
 import './Promo.css'
-import earthImg from '../../images/promo_earth.svg';
-import { useRef } from 'react';
+import earthImg from '../../images/earth.svg';
 
 export default function Promo() {
 
