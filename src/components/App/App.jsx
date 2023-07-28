@@ -14,7 +14,6 @@ import ProtectedView from "../ProtectedView/ProtectedView";
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
-  console.log(isLoggedIn)
 
   return (
     <>

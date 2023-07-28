@@ -1,24 +1,36 @@
-import { useEffect } from 'react';
+import {useEffect, useState} from 'react';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import './SearchForm.css';
 import glass from '../../images/glass.svg';
 
-export default function SearchForm() {
+export default function SearchForm({ moviesStateAction }) {
 
   const { values, handleChange, errors, isValid, setIsValid } = useFormAndValidation();
 
+  const [shortFilter, setShortFilter] = useState();
+
   const { film } = values;
+
+  const { movies, setFilteredMovies } = moviesStateAction;
 
   useEffect(() => {
     if (!film) {
       setIsValid(false)
-    }
-  }, [film])
+      setFilteredMovies(movies);
+      return;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  }
+    }
+    const filtered = movies.filter((movie) => {
+      const isTitleMatch = movie.title.toLowerCase().includes(film.toLowerCase());
+      const isShortMatch = !shortFilter || movie.short === shortFilter;
+
+      return isTitleMatch && isShortMatch;
+    });
+
+    setFilteredMovies(filtered);
+
+  }, [film, shortFilter])
 
   return (
     <section>
@@ -39,7 +51,7 @@ export default function SearchForm() {
         <span className={isValid ? 'input-error' : 'input-error input-error_active'}>
           {errors.film}
         </span>
-        <FilterCheckbox />
+        <FilterCheckbox shortFilter={shortFilter} setShortFilter={setShortFilter} />
       </form>
     </section>
   );
