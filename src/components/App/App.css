@@ -5,7 +5,7 @@
   min-width: 320px;
 }
 
-.page {
+.App {
   width: 100%;
   min-width: 320px;
   min-height: 100vh;
@@ -13,6 +13,7 @@
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   background-color: #fff;
   color: #000;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
@@ -60,4 +61,3 @@
   opacity: 0.8;
 }
 
-/* * { outline: 1px solid red; } */
