@@ -10,12 +10,14 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './App.css';
 import {useState} from "react";
+import ProtectedView from "../ProtectedView/ProtectedView";
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
   console.log(isLoggedIn)
 
   return (
+    <>
     <div className='page'>
 
       <Header isLoggedIn={isLoggedIn} />
@@ -24,16 +26,29 @@ export default function App() {
         <Route path='/' element={<Main />} />
         <Route
           path='/movies'
-          element={<Movies />}
+          element={
+            <ProtectedView isLoggedIn={isLoggedIn}>
+              <Movies />
+            </ProtectedView>
+        }
         />
-        <Route path='/saved-movies' element={<SavedMovies />} />
-        <Route path='/profile' element={<Profile setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path='/saved-movies' element={
+          <ProtectedView isLoggedIn={isLoggedIn}>
+            <SavedMovies />
+          </ProtectedView>
+        } />
+        <Route path='/profile' element={
+          <ProtectedView isLoggedIn={isLoggedIn}>
+            <Profile setIsLoggedIn={setIsLoggedIn} />
+          </ProtectedView>
+        } />
         <Route path='/signin' element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path='/signup' element={<Register />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
 
-      <Footer />
     </div>
+    <Footer />
+    </>
   );
 };
