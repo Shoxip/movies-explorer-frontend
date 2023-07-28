@@ -29,7 +29,7 @@ export default function Navigation({ isLoggedIn, onClose }) {
 
   return (
     <>
-      {isLoggedIn ? (
+      {!isLoggedIn ? (
         <nav className='nav-auth'>
           <ul className='nav-auth__list'>
             <li className='nav-auth__list-item'>

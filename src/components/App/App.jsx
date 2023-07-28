@@ -12,7 +12,8 @@ import './App.css';
 import {useState} from "react";
 
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
+  console.log(isLoggedIn)
 
   return (
     <div className='page'>
@@ -27,7 +28,7 @@ export default function App() {
         />
         <Route path='/saved-movies' element={<SavedMovies />} />
         <Route path='/profile' element={<Profile setIsLoggedIn={setIsLoggedIn} />} />
-        <Route path='/signin' element={<Login />} />
+        <Route path='/signin' element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path='/signup' element={<Register />} />
         <Route path='*' element={<NotFound />} />
       </Routes>

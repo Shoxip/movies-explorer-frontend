@@ -4,7 +4,7 @@ import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import Logo from '../Logo/Logo';
 import './Login.css';
 
-export default function Login() {
+export default function Login({setIsLoggedIn}) {
 
   const { values, handleChange, errors, isValid, setIsValid } = useFormAndValidation();
 
@@ -18,8 +18,8 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoggedIn(true);
     localStorage.setItem('token', 'some-token-here'); // todo: LOGIN add token
-    console.log('works');
   }
 
   return (
