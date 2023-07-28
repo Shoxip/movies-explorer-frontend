@@ -5,6 +5,16 @@
   min-width: 320px;
 }
 
+h1 {
+  margin-top: 0;
+}
+
+button {
+  appearance: none;
+  background: none;
+  color: inherit;
+}
+
 .App {
   width: 100%;
   min-width: 320px;
