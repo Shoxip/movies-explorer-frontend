@@ -36,6 +36,8 @@ export default function Header({isLoggedIn}) {
         <Logo />
         <Navigation isLoggedIn={isLoggedIn} onClose={handlePopupClick} />
       </header>
+
+
       <Popup isOpen={isOpen} onClose={closePopup} />
     </>
   );
