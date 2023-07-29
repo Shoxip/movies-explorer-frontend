@@ -60,7 +60,7 @@ export default function Navigation({ isLoggedIn, onClose }) {
                   <li className='nav-auth__list-item'>
                     <NavLink className={({ isActive }) =>
                       isActive ? 'link nav-auth__link nav-auth__link_type_active' : 'link nav-auth__link'}
-                      to='/saved-movies'>
+                      to='/movies/saved'>
                       Сохраненные фильмы
                     </NavLink>
                   </li>

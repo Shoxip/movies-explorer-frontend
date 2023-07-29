@@ -33,7 +33,7 @@ export default function SearchForm({ moviesStateAction }) {
   }, [film, shortFilter])
 
   return (
-    <section>
+    <section className={'search_section'}>
       <form className='search__form'>
         <div className='search__container'>
           <input
@@ -44,7 +44,7 @@ export default function SearchForm({ moviesStateAction }) {
             onChange={handleChange}
             placeholder='Фильм'
           />
-          <button type='button' className={!isValid ? 'search__button_type_disabled' : 'button search__button'}>
+          <button type='button' className={!isValid ? 'button search__button_type_disabled' : 'button search__button'}>
            <img className='glass__image' src={glass} alt='лупа' />
           </button>
         </div>
