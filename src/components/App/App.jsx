@@ -1,5 +1,5 @@
 import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import Footer from '../Home/Footer/Footer';
 import './App.css';
 import {useState} from "react";
 import Routing from "../../Routing";

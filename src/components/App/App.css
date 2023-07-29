@@ -5,8 +5,8 @@
   min-width: 320px;
 }
 
-h1 {
-  margin-top: 0;
+h1, h2, h3, p {
+  margin: 0;
 }
 
 button {
@@ -53,6 +53,7 @@ button {
 }
 
 .link {
+  color: white;
   text-decoration: none;
   transition: 0.4s;
 }

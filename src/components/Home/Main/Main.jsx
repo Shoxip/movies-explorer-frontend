@@ -1,9 +1,9 @@
 import './Main.css'
 import Hero from "../Hero/Hero";
 import AboutProject from "../AboutProject/AboutProject";
-import Techs from "../Techs/Techs";
-import AboutMe from "../AboutMe/AboutMe";
-import Portfolio from "../Portfolio/Portfolio";
+import Stacks from "../Stacks/Stacks";
+import Student from "../Student/Student";
+import Portfolio from "../../Portfolio/Portfolio";
 
 
 export default function Main() {
@@ -12,8 +12,8 @@ export default function Main() {
     <main className={'main'}>
       <Hero />
       <AboutProject />
-      <Techs />
-      <AboutMe />
+      <Stacks />
+      <Student />
       <Portfolio />
     </main>
   )

@@ -32,6 +32,7 @@
 }
 
 .hero__description {
+  margin-top: 36px;
   max-width: 310px;
   font-size: 13px;
   line-height: 16px;

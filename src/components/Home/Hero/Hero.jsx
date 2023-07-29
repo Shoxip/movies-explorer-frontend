@@ -1,5 +1,5 @@
 import './Hero.css'
-import earthImg from '../../images/earth.svg';
+import earthImg from '../../../images/earth.svg';
 
 
 
