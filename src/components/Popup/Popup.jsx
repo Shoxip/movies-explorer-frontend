@@ -10,19 +10,59 @@ export default function Popup({ isOpen, onClose }) {
       onClose();
     }
   }
+
+
+  const getLinksClassName = ({ isActive }) => (isActive)
+    ? 'link popup__link popup__link_type_active'
+    : 'link popup__link'
+
+
   return (
     <section className={`popup ${isOpen && ('popup_opened')}`} onMouseDown={handleClickClose}>
       <nav className='popup__nav'>
         <button type='button' className='button popup__close-btn' onClick={onClose} />
-        <ul className='popup__list'>
-          <li className='popup__list-item'><NavLink className={({ isActive }) => isActive ? 'link popup__link popup__link_type_active' : 'link popup__link'} to="/">Главная</NavLink></li>
-          <li className='popup__list-item'><NavLink className={({ isActive }) => isActive ? 'link popup__link popup__link_type_active' : 'link popup__link'} to="/movies">Фильмы</NavLink></li>
-          <li className='popup__list-item'><NavLink className={({ isActive }) => isActive ? 'link popup__link popup__link_type_active' : 'link popup__link'} to="/saved-movies">Сохраненные фильмы</NavLink></li>
-          <NavLink className='popup__link popup__link_type_acc-btn' to='/profile'>
-            Аккаунт
-            <img className='popup__acc-image' src={AccountIcon} alt='Иконка аккаунта' />
-          </NavLink>
-        </ul>
+
+        <div className={'popup__content'}>
+          <ul className='popup__list'>
+            <li className='popup__list-item'>
+              <NavLink
+                className={getLinksClassName}
+                to="/"
+              >
+                Главная
+              </NavLink>
+            </li>
+
+            <li className='popup__list-item'>
+              <NavLink
+                className={getLinksClassName}
+                to="/movies"
+              >
+                Фильмы
+              </NavLink>
+            </li>
+
+            <li className='popup__list-item'>
+              <NavLink
+                className={getLinksClassName}
+                to="/movies/saved"
+              >
+                Сохраненные фильмы
+              </NavLink>
+            </li>
+          </ul>
+
+          <div className={'popup__content-profile-container'}>
+            <NavLink
+              className='popup__link popup__link_type_acc-btn'
+              to='/profile'
+            >
+              Аккаунт
+
+              <img className='popup__acc-image' src={AccountIcon} alt='Иконка аккаунта' />
+            </NavLink>
+          </div>
+        </div>
       </nav>
     </section >
   );
