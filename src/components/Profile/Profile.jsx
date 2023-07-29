@@ -10,7 +10,7 @@ export default function Profile() {
 
   const { email, name } = values;
 
-  const { setIsLoggedIn, isLoggedIn } = useAuth();
+  const { setIsLoggedIn } = useAuth();
 
   useEffect(() => {
     if (!email && !name) {
@@ -20,14 +20,13 @@ export default function Profile() {
 
   const handleExit = (e) => {
     setIsLoggedIn(false);
-    console.log(isLoggedIn);
     localStorage.removeItem('token');
   }
 
   return (
     <main>
       <section className='profile'>
-        <h1 className='profile__title'>Привет, Виталий!</h1>
+        <h1 className='profile__title'>Привет, UserName!</h1>
         <form className='profile__form'>
           <div className='profile__input-container'>
             <label className='profile__input-label'>Имя</label>

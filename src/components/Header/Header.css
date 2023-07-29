@@ -1,10 +1,13 @@
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 18px 70px;
   margin: 0 auto 0px;
   background-color: #073042;
+}
+
+.logo {
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {

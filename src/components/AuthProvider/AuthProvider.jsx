@@ -8,7 +8,6 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
-    console.log(isLoggedIn)
 
     return (
         <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>

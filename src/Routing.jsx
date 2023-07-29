@@ -10,28 +10,31 @@ import SignUpPage from "./pages/auth/Signup.page";
 import NotFoundPage from "./pages/Notfound.page";
 import ProfilePage from "./pages/Profile.page";
 import ProtectedView from "./components/ProtectedView/ProtectedView";
+import {useAuth} from "./components/AuthProvider/AuthProvider";
 
 
 
 const RoutesList = [
-  {path: '/', pageComponent: <IndexPage />, isAuthNeeded: false},
+  {path: '/', pageComponent: <IndexPage />, isPublicPage: false},
 
-  {path: '/profile', pageComponent: <ProfilePage />, isAuthNeeded: true},
+  {path: '/profile', pageComponent: <ProfilePage />, isPublicPage: true},
 
   // Auth
-  {path: '/sign-in', pageComponent: <SignInPage />, isAuthNeeded: true},
-  {path: '/sign-up', pageComponent: <SignUpPage />, isAuthNeeded: true},
+  {path: '/sign-in', pageComponent: <SignInPage />, isPublicPage: false},
+  {path: '/sign-up', pageComponent: <SignUpPage />, isPublicPage: false},
 
   // Movies
-  {path: '/movies', pageComponent: <MoviesPage />, isAuthNeeded: false},
-  {path: '/movies/saved', pageComponent: <SavedMoviesPage />, isAuthNeeded: false},
+  {path: '/movies', pageComponent: <MoviesPage />, isPublicPage: true},
+  {path: '/movies/saved', pageComponent: <SavedMoviesPage />, isPublicPage: true},
 
-  {path: '*', pageComponent: <NotFoundPage />, isAuthNeeded: false},
+  {path: '*', pageComponent: <NotFoundPage />, isPublicPage: false},
 ]
 
 
 
 export default function Routing() {
+  const { isLoggedIn } = useAuth();
+
   return (
     <>
       <Routes>
@@ -40,7 +43,10 @@ export default function Routing() {
               <Route
                 key={i.path}
                 path={i.path}
-                element={i.pageComponent}
+                element={
+                <ProtectedView isPublicPage={i.isPublicPage} isLoggedIn={isLoggedIn}>
+                  {i.pageComponent}
+                </ProtectedView>}
               />
           ))
         }
