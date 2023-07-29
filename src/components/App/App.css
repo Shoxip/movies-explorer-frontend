@@ -5,6 +5,16 @@
   min-width: 320px;
 }
 
+h1, h2, h3, p {
+  margin: 0;
+}
+
+button {
+  appearance: none;
+  background: none;
+  color: inherit;
+}
+
 .App {
   width: 100%;
   min-width: 320px;
@@ -43,6 +53,7 @@
 }
 
 .link {
+  color: white;
   text-decoration: none;
   transition: 0.4s;
 }

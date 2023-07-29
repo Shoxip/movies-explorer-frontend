@@ -1,12 +1,11 @@
 .about-project {
   max-width: 1280px;
-  padding: 111px 70px 110px;
+  padding: 0 70px;
   margin: 0 auto;
-  box-sizing: border-box;
+  /*box-sizing: border-box;*/
 }
 
 .about-project__title {
-  margin: 0;
   font-size: 22px;
   font-weight: 400;
   line-height: normal;
@@ -18,24 +17,21 @@
 .about-project__info {
   padding-top: 70px;
   display: flex;
-  gap: 53px;
+  /*gap: 53px;*/
 }
 
 .about-project__block {
   display: flex;
   flex-direction: column;
-  gap: 26px;
 }
 
 .about-project__block-title {
-  margin: 0;
   font-size: 20px;
   font-weight: 400;
   letter-spacing: -0.8px;
 }
 
 .about-project__block-description {
-  margin: 0;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
