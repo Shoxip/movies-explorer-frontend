@@ -12,6 +12,8 @@ export default function Hero({pointSmoothScrollRef}) {
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
     const duration = 1000;
+
+
     let startTime = null;
 
     const animationScroll = (currentTime) => {
