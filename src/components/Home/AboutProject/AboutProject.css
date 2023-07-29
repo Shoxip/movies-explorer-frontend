@@ -17,7 +17,7 @@
 .about-project__info {
   padding-top: 70px;
   display: flex;
-  /*gap: 53px;*/
+  gap: 53px;
 }
 
 .about-project__block {
