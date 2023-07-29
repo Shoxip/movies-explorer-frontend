@@ -38,6 +38,7 @@ export default function Routing() {
         {
           RoutesList.map(i => (
               <Route
+                key={i.path}
                 path={i.path}
                 element={i.pageComponent}
               />

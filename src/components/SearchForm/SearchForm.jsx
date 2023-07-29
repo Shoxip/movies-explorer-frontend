@@ -30,7 +30,7 @@ export default function SearchForm({ moviesStateAction }) {
 
     setFilteredMovies(filtered);
 
-  }, [film, shortFilter])
+  }, [film, shortFilter, movies, setFilteredMovies, setIsValid])
 
   return (
     <section className={'search_section'}>

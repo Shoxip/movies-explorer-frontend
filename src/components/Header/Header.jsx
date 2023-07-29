@@ -4,7 +4,7 @@ import Logo from '../Logo/Logo';
 import Popup from '../Popup/Popup';
 import './Header.css';
 
-export default function Header({isLoggedIn}) {
+export default function Header() {
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,7 +34,7 @@ export default function Header({isLoggedIn}) {
     <>
       <header className='header'>
         <Logo />
-        <Navigation isLoggedIn={isLoggedIn} onClose={handlePopupClick} />
+        <Navigation onClose={handlePopupClick} />
       </header>
       <Popup isOpen={isOpen} onClose={closePopup} />
     </>

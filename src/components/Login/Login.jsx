@@ -1,25 +1,29 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
-import Logo from '../Logo/Logo';
 import './Login.css';
+import {useAuth} from "../AuthProvider/AuthProvider";
 
-export default function Login({setIsLoggedIn}) {
+export default function Login() {
 
-  const { values, handleChange, errors, isValid, setIsValid } = useFormAndValidation();
+  const { values, handleChange, errors, setIsValid } = useFormAndValidation();
 
   const { email, password } = values;
+
+  const { setIsLoggedIn } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!email && !password) {
       setIsValid(false)
     }
-  }, [email, password])
+  }, [email, password, setIsValid])
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoggedIn(true);
     localStorage.setItem('token', 'some-token-here'); // todo: LOGIN add token
+    navigate('/');
   }
 
   return (

@@ -1,29 +1,26 @@
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
-import Header from '../Header/Header';
 import './Profile.css';
+import {useAuth} from "../AuthProvider/AuthProvider";
 
-export default function Profile({setIsLoggedIn}) {
+export default function Profile() {
 
-  const { values, handleChange, errors, isValid, setIsValid } = useFormAndValidation();
+  const { values, handleChange, errors, setIsValid } = useFormAndValidation();
 
   const { email, name } = values;
+
+  const { setIsLoggedIn, isLoggedIn } = useAuth();
 
   useEffect(() => {
     if (!email && !name) {
       setIsValid(false)
     }
-  }, [email, name])
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // do logic for edit profile
-  }
+  }, [email, name, setIsValid])
 
   const handleExit = (e) => {
     setIsLoggedIn(false);
+    console.log(isLoggedIn);
     localStorage.removeItem('token');
   }
 

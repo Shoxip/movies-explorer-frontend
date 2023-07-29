@@ -3,9 +3,10 @@ import { Link, NavLink } from 'react-router-dom';
 import AccountIcon from '../../images/nav-auth__acc-image.svg';
 import PopupImage from '../../images/nav-auth__acc-image_type_768.svg';
 import './Navigation.css';
+import {useAuth} from "../AuthProvider/AuthProvider";
 
-export default function Navigation({ isLoggedIn, onClose }) {
-
+export default function Navigation({  onClose }) {
+  const { isLoggedIn } = useAuth();
   const [showElement, setShowElement] = useState(() => {
     const storedValue = localStorage.getItem('showElement');
     return storedValue !== null ? JSON.parse(storedValue) : true;
@@ -29,7 +30,7 @@ export default function Navigation({ isLoggedIn, onClose }) {
 
   return (
     <>
-      {isLoggedIn ? (
+      {!isLoggedIn ? (
         <nav className='nav-auth'>
           <ul className='nav-auth__list'>
             <li className='nav-auth__list-item'>
