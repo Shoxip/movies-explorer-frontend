@@ -18,14 +18,18 @@ export default function Movies() {
 
   return (
     <main className='movies'>
-      <SearchForm moviesStateAction={{movies, setFilteredMovies}} />
-      <section>
-        {
-          isLoading ?
-            <Preloader /> : <MoviesCardList cards={filteredMovies} />
-        }
-        <button type='button' className='button movies__load-movies'>Ещё</button>
-      </section>
+      <div className={'movies__wrapper'}>
+
+        <SearchForm moviesStateAction={{movies, setFilteredMovies}} />
+        <section className='list__wrapper'>
+          {
+            isLoading ?
+              <Preloader /> : <MoviesCardList cards={filteredMovies} />
+          }
+          <button type='button' className='button movies__load-movies'>Ещё</button>
+        </section>
+      </div>
+
     </main>
   );
 };

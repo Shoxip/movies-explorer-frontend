@@ -1,24 +1,23 @@
 import Header from '../Header/Header';
 import Footer from '../Home/Footer/Footer';
 import './App.css';
-import {useState} from "react";
 import Routing from "../../Routing";
+import {AuthProvider} from "../AuthProvider/AuthProvider";
 
 
 
 export default function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
-
   return (
     <div className='App'>
-      <Header
-        isLoggedIn={isLoggedIn}
-      />
 
+    <AuthProvider>
+      <Header />
       <Routing />
-
       <Footer />
+
+    </AuthProvider>
+
     </div>
   );
 };

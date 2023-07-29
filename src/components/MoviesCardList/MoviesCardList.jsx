@@ -3,7 +3,7 @@ import './MoviesCardList.css';
 
 export default function MoviesCardList({cards}) {
   return (
-    <section>
+    <section className={'movies__list__wrapper'}>
       <ul className='movies__list'>
         {cards.map((card) => (
           <MoviesCard

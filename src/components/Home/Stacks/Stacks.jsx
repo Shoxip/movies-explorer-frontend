@@ -33,7 +33,7 @@ export default function Stacks() {
       <ul className='stacks__list'>
         {
           stackStrList.map(stackStr => (
-            <li className='stacks__item'>
+            <li className='stacks__item' key={stackStr}>
               {stackStr}
             </li>
           ))
