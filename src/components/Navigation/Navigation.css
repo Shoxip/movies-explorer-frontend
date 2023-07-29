@@ -19,7 +19,7 @@
 .nav-auth__list_type_login {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
   justify-co.nav-auth_type_login {
@@ -43,7 +43,6 @@
   .nav-auth__list_type_login {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
   }
 
