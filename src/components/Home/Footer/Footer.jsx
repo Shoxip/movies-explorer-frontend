@@ -1,6 +1,14 @@
 import './Footer.css';
+import {useLocation} from "react-router-dom";
 
 export default function Footer() {
+  const path = useLocation().pathname;
+
+  console.log(path)
+  if((path === '/sign-up') || (path === '/sign-in')) {
+    return
+  }
+
   return (
     <footer className='footer' id='footer'>
       <p className='footer__authors'>
