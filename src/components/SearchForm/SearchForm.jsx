@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useLayoutEffect, useState} from 'react';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import glass from '../../images/glass.svg';
@@ -14,7 +14,7 @@ export default function SearchForm({ moviesStateAction }) {
 
   const { movies, setFilteredMovies } = moviesStateAction;
 
-  useEffect(() => {
+  const findFilm = () => {
     if (!film) {
       setIsValid(false)
       setFilteredMovies(movies);
@@ -29,8 +29,28 @@ export default function SearchForm({ moviesStateAction }) {
     });
 
     setFilteredMovies(filtered);
+  }
 
-  }, [film, shortFilter, movies, setFilteredMovies, setIsValid])
+  useLayoutEffect(() => {
+    findFilm()
+  }, [])
+  // useEffect(() => {
+  //   if (!film) {
+  //     setIsValid(false)
+  //     setFilteredMovies(movies);
+  //     return;
+  //
+  //   }
+  //   const filtered = movies.filter((movie) => {
+  //     const isTitleMatch = movie.title.toLowerCase().includes(film.toLowerCase());
+  //     const isShortMatch = !shortFilter || movie.short === shortFilter;
+  //
+  //     return isTitleMatch && isShortMatch;
+  //   });
+  //
+  //   setFilteredMovies(filtered);
+  //
+  // }, [film, shortFilter, movies, setFilteredMovies, setIsValid])
 
   return (
     <section className='search-section'>
@@ -45,7 +65,7 @@ export default function SearchForm({ moviesStateAction }) {
             placeholder='Фильм'
             required
           />
-          <button type='button' className={!isValid ? 'button search-form__button search-form__button_type_disabled' : 'button search-form__button'}>
+          <button type='button' disabled={!isValid} className={'button search-form__button'} onClick={findFilm}>
             <img className='search-form__glass-image' src={glass} alt='лупа' />
           </button>
         </div>
