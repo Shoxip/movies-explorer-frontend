@@ -24,9 +24,11 @@
   height: 50px;
   border: none;
   font-size: 12px;
-  border-radius: 6px;
   max-width: 1140px;
-  background-color: #FFFFFF;
+  background-color: #F9F9F9;
+  margin-bottom: 80px;
+  margin-top: 50px;
+  border-radius: 6px;
 }
 
 .movies__load-movies:hover {
@@ -48,7 +50,7 @@
 
 @media (max-width: 768px) {
   .movies__list-wrapper {
-    max-width: 320px;
+    max-width: 300px;
     padding: 10px 0;
   }
 }
