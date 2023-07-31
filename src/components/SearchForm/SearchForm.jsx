@@ -14,7 +14,11 @@ export default function SearchForm({ moviesStateAction }) {
 
   const { movies, setFilteredMovies } = moviesStateAction;
 
-  const findFilm = () => {
+  const findFilm = (e) => {
+    if(e) {
+      e.preventDefault();
+    }
+
     if (!film) {
       setIsValid(false)
       setFilteredMovies(movies);
@@ -54,7 +58,7 @@ export default function SearchForm({ moviesStateAction }) {
 
   return (
     <section className='search-section'>
-      <form className='search-form'>
+      <form className='search-form' onSubmit={findFilm}>
         <div className='search-form__container'>
           <input
             type='text'
@@ -65,7 +69,7 @@ export default function SearchForm({ moviesStateAction }) {
             placeholder='Фильм'
             required
           />
-          <button type='button' disabled={!isValid} className={'button search-form__button'} onClick={findFilm}>
+          <button type='submit' disabled={!isValid} className={'button search-form__button'} >
             <img className='search-form__glass-image' src={glass} alt='лупа' />
           </button>
         </div>
