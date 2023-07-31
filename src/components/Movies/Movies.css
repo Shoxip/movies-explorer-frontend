@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.list__wrapper {
+.movies__list-wrapper {
   width: 100%;
   max-width: 767px;
 }
@@ -46,8 +46,14 @@
 
 }
 
+@media (max-width: 768px) {
+  .movies__list-wrapper {
+    max-width: 320px;
+    padding: 10px 0;
+  }
+}
 @media screen and (max-width: 360px) {
-  .movies__wrapper {
+  .movies__list-wrapper {
     max-width: 320px;
     padding: 10px 0;
   }

@@ -27,7 +27,7 @@
   color: #a0a0a0;
 }
 
-.movies-card__not_liked {
+.movies-card__not-liked {
   background-image: url(../../images/like_disable.svg);
   width: 14px;
   height: 12px;
@@ -56,15 +56,18 @@
   }
 
   .movies-card__info {
+    padding: 12px;
     margin-right: 0px;
+    margin-top: 2px;
   }
 
   .movies-card__time {
-    border-top: 1px solid #E8E8E8;
-    padding-top: 10px;
+    padding-top: 8px;
+    font-size: 11px;
+    color: #A0A0A0;
   }
 
-  .movies-card__not_liked {
+  .movies-card__not-liked {
     position: relative;
     top: 0;
     align-self: flex-end;
@@ -72,8 +75,8 @@
 
   .like {
     position: absolute;
-    right: 0px;
-    top: 5px;
+    right: 16px;
+    top: 16px;
     margin-top: 0;
   }
 }

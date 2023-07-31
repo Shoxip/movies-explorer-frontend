@@ -21,7 +21,7 @@ export default function Movies() {
       <div className={'movies__wrapper'}>
 
         <SearchForm moviesStateAction={{movies, setFilteredMovies}} />
-        <section className='list__wrapper'>
+        <section className='movies__list-wrapper'>
           {
             isLoading ?
               <Preloader /> : <MoviesCardList cards={filteredMovies} />

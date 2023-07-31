@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
-import './SearchForm.css';
 import glass from '../../images/glass.svg';
+import './SearchForm.css';
 
 export default function SearchForm({ moviesStateAction }) {
 
@@ -33,24 +33,24 @@ export default function SearchForm({ moviesStateAction }) {
   }, [film, shortFilter, movies, setFilteredMovies, setIsValid])
 
   return (
-    <section className={'search_section'}>
-      <form className='search__form'>
-        <div className='search__container'>
+    <section className='search-section'>
+      <form className='search-form'>
+        <div className='search-form__container'>
           <input
             type='text'
-            className='search__input'
+            className='search-form__input'
             name='film'
             value={film || ''}
             onChange={handleChange}
             placeholder='Фильм'
           />
-          <button type='button' className={!isValid ? 'button search__button_type_disabled' : 'button search__button'}>
-           <img className='glass__image' src={glass} alt='лупа' />
+          <button type='button' className={!isValid ? 'button search-form__button search-form__button_type_disabled' : 'button search-form__button'}>
+            <img className='search-form__glass-image' src={glass} alt='лупа' />
           </button>
         </div>
-        <span className={isValid ? 'input-error' : 'input-error input-error_active'}>
-          {errors.film}
-        </span>
+        <span className={isValid ? 'search-form__input-error' : 'search-form__input-error search-form__input-error_active'}>
+      {errors.film}
+    </span>
         <FilterCheckbox shortFilter={shortFilter} setShortFilter={setShortFilter} />
       </form>
     </section>
