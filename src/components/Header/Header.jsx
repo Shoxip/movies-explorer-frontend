@@ -3,8 +3,10 @@ import Navigation from '../Navigation/Navigation';
 import Logo from '../Logo/Logo';
 import Popup from '../Popup/Popup';
 import './Header.css';
+import {useLocation} from "react-router-dom";
 
 export default function Header() {
+
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -29,6 +31,12 @@ export default function Header() {
       document.removeEventListener('keydown', close)
     }
   }, [isOpen])
+
+  const path = useLocation().pathname;
+
+  if((path === '/sign-up') || (path === '/sign-in')) {
+    return
+  }
 
   return (
     <>

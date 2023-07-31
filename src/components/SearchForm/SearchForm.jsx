@@ -43,16 +43,19 @@ export default function SearchForm({ moviesStateAction }) {
             value={film || ''}
             onChange={handleChange}
             placeholder='Фильм'
+            required
           />
           <button type='button' className={!isValid ? 'button search-form__button search-form__button_type_disabled' : 'button search-form__button'}>
             <img className='search-form__glass-image' src={glass} alt='лупа' />
           </button>
         </div>
         <span className={isValid ? 'search-form__input-error' : 'search-form__input-error search-form__input-error_active'}>
-      {errors.film}
-    </span>
+          {errors.film}
+        </span>
+
         <FilterCheckbox shortFilter={shortFilter} setShortFilter={setShortFilter} />
       </form>
+
     </section>
   );
 };

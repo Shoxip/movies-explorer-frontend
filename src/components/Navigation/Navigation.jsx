@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, NavLink } from 'react-router-dom';
+import {Link, NavLink, useLocation} from 'react-router-dom';
 import AccountIcon from '../../images/nav-auth__acc-image.svg';
 import PopupImage from '../../images/nav-auth__acc-image_type_768.svg';
 import './Navigation.css';
