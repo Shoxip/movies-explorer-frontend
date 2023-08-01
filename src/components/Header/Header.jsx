@@ -7,7 +7,6 @@ import {useLocation} from "react-router-dom";
 
 export default function Header() {
 
-
   const [isOpen, setIsOpen] = useState(false);
 
   function handlePopupClick() {
@@ -38,9 +37,11 @@ export default function Header() {
     return
   }
 
+  const isOnMovies = (path === '/movies' || path === '/movies/saved');
+
   return (
     <>
-      <header className='header'>
+      <header className={`header ${isOnMovies ? 'header-white' : null }`}>
         <Logo />
         <Navigation onClose={handlePopupClick} />
       </header>

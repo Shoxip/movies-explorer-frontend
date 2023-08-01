@@ -21,6 +21,16 @@
   justify-content: flex-end;
 }
 
+
+
+.nav-auth__link-black {
+  color: black;
+}
+
+.nav-auth__films > .link {
+  color: black;
+}
+
 .nav-auth__list_type_login {
   display: flex;
   flex-direction: row;

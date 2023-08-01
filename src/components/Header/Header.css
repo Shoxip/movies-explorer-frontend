@@ -6,6 +6,10 @@
   background-color: #073042;
 }
 
+.header-white {
+  background-color: #FFFFFF;
+}
+
 
 @media screen and (max-width: 768px) {
   .header {
