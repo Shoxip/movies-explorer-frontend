@@ -16,7 +16,6 @@
 
 .movies__list-wrapper {
   width: 100%;
-  max-width: 767px;
 }
 
 .movies__load-movies {
@@ -45,7 +44,6 @@
   .movies__wrapper {
     max-width: 768px;
   }
-
 }
 
 @media (max-width: 768px) {
