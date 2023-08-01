@@ -9,12 +9,13 @@ export default function Navigation({  onClose }) {
   const { isLoggedIn } = useAuth();
   const [showElement, setShowElement] = useState(() => {
     const storedValue = localStorage.getItem('showElement');
-    return storedValue !== null ? JSON.parse(storedValue) : true;
+    return storedValue !== null ? JSON.parse(storedValue) : false;
   });
 
   useEffect(() => {
     function handleResize() {
       setShowElement(window.innerWidth <= 768);
+      console.log(window.innerWidth);
     }
 
     window.addEventListener('resize', handleResize);
