@@ -1,18 +1,10 @@
-.stack {
+.stacks {
   max-width: 1280px;
   padding: 0 70px;
   margin: 0 auto;
 }
 
-.stack__title {
-  font-size: 22px;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: -0.8px;
-  border-bottom: 1px solid #000;
-  margin-top: 100px;
-  padding-bottom: 24px;
-}
+
 
 .stacks__name {
   margin: 0 auto;
